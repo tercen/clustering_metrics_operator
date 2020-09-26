@@ -1,5 +1,6 @@
 library(tercen)
 library(dplyr)
+library(reshape2)
 library(clusterCrit)
 
 options("tercen.workflowId" = "7eee20aa9d6cc4eb9d7f2cc2430313b6")
@@ -10,25 +11,28 @@ ctx = tercenCtx()
 labs <- ctx %>% 
   select(.ci, .ri) %>%
   mutate(labs = ctx$select(ctx$labels)[[1]]) %>%
-  reshape2::acast(.ci ~ .ri, value.var='labs')
-labs <- labs[, 1]
+  acast(.ci ~ .ri, value.var = 'labs')
 
 data <- t(ctx$as.matrix())
-results <- intCriteria(data, as.integer(labs), c("Davies_Bouldin", "Dunn", "Silhouette", "Calinski_Harabasz"))
-# results$.ci <- seq_len(nrow(data)) - 1
-results <- data.frame(results)
+results <- intCriteria(
+  data, as.integer(labs[, 1]),
+  c("Davies_Bouldin", "Dunn", "Silhouette", "Calinski_Harabasz")
+)
+results <- data.frame(metric = names(results), value = unlist(results))
 
-cTable = tibble(.ci=seq.int(0,ctx$cschema$nRows-1)) %>% mutate(val = results[[1]])
-rTable = tibble(.ri=seq.int(0,ctx$rschema$nRows-1)) %>% mutate(val = results[[1]])
+table <- tercen::dataframe.as.table(ctx$addNamespace(results))
+table$properties$name <- 'clustering_metrics'
+table$columns[[1]]$type = 'character'
+table$columns[[2]]$type = 'double'
 
-cTable %>% full_join(rTable) %>%
-  ctx$addNamespace() %>%
-  ctx$save() 
+relation <- SimpleRelation$new()
+relation$id <- table$properties$name
 
-results <- ctx$addNamespace(results)
-ctx$save(results)
+join <- JoinOperator$new()
+join$rightRelation <- relation
 
-ctx %>% 
-  select(.ci, .ri) %>% summarise()
-ctx %>% as.matrix %>% t %>% as_tibble
+result <- OperatorResult$new()
+result$tables <- list(table)
+result$joinOperators <- list(join)
 
+ctx$save(result) 
