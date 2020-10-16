@@ -20,8 +20,10 @@ Output relations|.
 
 ##### Details
 
-#### References
+##### References
+
+This operator is based on the [clusterCrit R function](https://www.rdocumentation.org/packages/clusterCrit/versions/1.2.8/topics/clusterCrit).
 
 ##### See Also
 
-#### Examples
+[hierarchical_clustering_operator](https://github.com/tercen/hierarchical_clustering_operator), [flowsom_operator](https://github.com/tercen/flowsom_operator), [clusterx_operator](https://github.com/tercen/clusterx_operator)
