@@ -3,7 +3,7 @@
   "description": "Returns various clustering metrics",
   "tags": ["clustering"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/clusteringmetrics_operator/"],
+  "urls": ["https://github.com/tercen/clustering_metrics_operator/"],
   "properties": []
 }
 
