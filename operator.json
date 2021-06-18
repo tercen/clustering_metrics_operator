@@ -1,6 +1,6 @@
 {
-  "name": "Clustering metrics",
-  "description": "Returns various clustering metrics",
+  "name": "Clustering Metrics",
+  "description": "Calculates a set of scores that assess the quality of the results derived from a clustering alglorithm.",
   "tags": ["clustering"],
   "authors": ["tercen"],
   "urls": ["https://github.com/tercen/clustering_metrics_operator/"],
