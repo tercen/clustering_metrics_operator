@@ -1,35 +1,28 @@
-library(tercen)
-library(dplyr)
-library(reshape2)
-library(clusterCrit)
+suppressPackageStartupMessages({
+  library(tercen)
+  library(dplyr)
+  library(reshape2)
+  library(fpc)
+})
 
 ctx = tercenCtx()
 
 labs <- ctx %>% 
   select(.ci, .ri) %>%
   mutate(labs = ctx$select(ctx$labels)[[1]]) %>%
-  acast(.ci ~ .ri, value.var = 'labs')
+  filter(.ri == 0) %>%
+  arrange(.ci) %>%
+  select(labs)
 
 data <- t(ctx$as.matrix())
-results <- intCriteria(
-  data, as.integer(labs[, 1]),
-  c("Davies_Bouldin", "Dunn", "Silhouette", "Calinski_Harabasz")
-)
-results <- data.frame(metric = names(results), value = unlist(results))
 
-table <- tercen::dataframe.as.table(ctx$addNamespace(results))
-table$properties$name <- 'clustering_metrics'
-table$columns[[1]]$type = 'character'
-table$columns[[2]]$type = 'double'
+cl_stats <- fpc::cluster.stats(data, as.integer(as.factor(labs$labs)), aggregateonly = TRUE)
 
-relation <- SimpleRelation$new()
-relation$id <- table$properties$name
+nulls <- unlist(lapply(cl_stats, is.null))
+cl_stats[nulls] <- NA_real_
 
-join <- JoinOperator$new()
-join$rightRelation <- relation
-
-result <- OperatorResult$new()
-result$tables <- list(table)
-result$joinOperators <- list(join)
-
-ctx$save(result) 
+cl_stats %>%
+  as_tibble() %>%
+  as_relation() %>%
+  as_join_operator(list(), list()) %>%
+  save_relation()

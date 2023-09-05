@@ -18,8 +18,6 @@ Output relations|.
 `metrics`        | character, name of the clustering metric
 `value`        | numeric, value of the clustering metric
 
-##### Details
-
 ##### References
 
 This operator is based on the [clusterCrit R function](https://www.rdocumentation.org/packages/clusterCrit/versions/1.2.8/topics/clusterCrit).
