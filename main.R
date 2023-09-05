@@ -23,6 +23,8 @@ cl_stats[nulls] <- NA_real_
 
 cl_stats %>%
   as_tibble() %>%
+  tidyr::pivot_longer(everything(), names_to = "metric") %>%
+  ctx$addNamespace() %>%
   as_relation() %>%
   as_join_operator(list(), list()) %>%
-  save_relation()
+  save_relation(ctx)

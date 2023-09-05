@@ -2,7 +2,7 @@
 
 ##### Description
 
-`clustering_metrics` operator returns clustering metrics.
+`clustering_metrics` operator returns a set of cluster validation metrics.
 
 ##### Usage
 
@@ -15,12 +15,12 @@ Input projection|.
 
 Output relations|.
 ---|---
-`metrics`        | character, name of the clustering metric
+`metric`        | character, name of the clustering metric
 `value`        | numeric, value of the clustering metric
 
 ##### References
 
-This operator is based on the [clusterCrit R function](https://www.rdocumentation.org/packages/clusterCrit/versions/1.2.8/topics/clusterCrit).
+This operator is based on the [cluster.stats R function from the fpc package](https://www.rdocumentation.org/packages/fpc/versions/2.2-10/topics/cluster.stats).
 
 ##### See Also
 

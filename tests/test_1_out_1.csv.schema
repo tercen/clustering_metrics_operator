@@ -3,112 +3,12 @@
   "columns": [
     {
       "kind": "ColumnSchema",
-      "name": "n",
-      "type": "int32"
+      "name": "ds2.metric",
+      "type": "string"
     },
     {
       "kind": "ColumnSchema",
-      "name": "cluster.number",
-      "type": "int32"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "min.cluster.size",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "noisen",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "average.between",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "average.within",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "max.diameter",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "min.separation",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "ave.within.cluster.ss",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "avg.silwidth",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "g2",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "g3",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "pearsongamma",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "dunn",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "dunn2",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "entropy",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "wb.ratio",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "ch",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "widestgap",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "sindex",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "corrected.rand",
-      "type": "double"
-    },
-    {
-      "kind": "ColumnSchema",
-      "name": "vi",
+      "name": "ds2.value",
       "type": "double"
     }
   ]
