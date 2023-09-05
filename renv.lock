@@ -136,6 +136,13 @@
       ],
       "Hash": "db63a44aab5aadcb6bf2f129751d129a"
     },
+    "cpp11": {
+      "Package": "cpp11",
+      "Version": "0.2.7",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "730eebcc741a5c36761f7d4d0f5e37b8"
+    },
     "crayon": {
       "Package": "crayon",
       "Version": "1.4.1",
@@ -627,6 +634,28 @@
         "vctrs"
       ],
       "Hash": "4d894a114dbd4ecafeda5074e7c538e6"
+    },
+    "tidyr": {
+      "Package": "tidyr",
+      "Version": "1.1.3",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "cpp11",
+        "dplyr",
+        "ellipsis",
+        "glue",
+        "lifecycle",
+        "magrittr",
+        "purrr",
+        "rlang",
+        "tibble",
+        "tidyselect",
+        "utils",
+        "vctrs"
+      ],
+      "Hash": "450d7dfaedde58e28586b854eeece4fa"
     },
     "tidyselect": {
       "Package": "tidyselect",
