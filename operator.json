@@ -1,10 +1,14 @@
 {
   "name": "Clustering Metrics",
   "description": "Calculates a set of cluster validation metrics.",
-  "tags": ["clustering"],
-  "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/clustering_metrics_operator/"],
+  "tags": [
+    "clustering"
+  ],
+  "authors": [
+    "tercen"
+  ],
+  "urls": [
+    "https://github.com/tercen/clustering_metrics_operator/"
+  ],
   "properties": []
 }
-
-
