@@ -55,6 +55,21 @@
                 "factors": []
               }
             ]
+          },
+          {
+            "kind": "AxisSpec",
+            "metaFactors": [
+              {
+                "kind": "MetaFactor",
+                "name": "Cluster",
+                "type": "string",
+                "description": "Cluster assignment for each observation",
+                "ontologyMapping": "factor",
+                "crosstabMapping": "label",
+                "cardinality": "1",
+                "factors": []
+              }
+            ]
           }
         ]
       }
