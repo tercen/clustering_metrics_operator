@@ -64,7 +64,7 @@
                 "name": "Cluster",
                 "type": "string",
                 "description": "Cluster assignment for each observation",
-                "ontologyMapping": "factor",
+                "ontologyMapping": "group",
                 "crosstabMapping": "label",
                 "cardinality": "1",
                 "factors": []
