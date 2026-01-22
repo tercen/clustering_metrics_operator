@@ -1,0 +1,22 @@
+{
+  "outputSpecs": [{
+    "kind": "OperatorJoinSpec",
+    "description": "Cluster validation metrics - global output with no join keys",
+    "joinOperators": [{
+      "kind": "JoinOperator",
+      "joinType": "left",
+      "leftPair": {
+        "kind": "ColumnPair",
+        "lColumns": [],
+        "rColumns": []
+      },
+      "rightRelation": {
+        "kind": "TableRelation",
+        "attributes": [
+          {"kind": "Attribute", "name": "metric", "type": "string"},
+          {"kind": "Attribute", "name": "value", "type": "double"}
+        ]
+      }
+    }]
+  }]
+}
